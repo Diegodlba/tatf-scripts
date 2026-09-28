@@ -29,7 +29,7 @@ public class ReiniciarContrasenaTest extends BaseTest {
     @Test
     @DisplayName("Reiniciar contraseña - login exitoso con la nueva contraseña")
     void reiniciarContrasena() {
-        acceso.ingresarAlSitio(url, passwordAcceso);
+        acceso.ingresarAlSitio(url, contrasenaAcceso);
 
         // Precondición: existe una cuenta de Administrador
         register.crearCuentaAdministrador(ReiniciarContrasenaData.NOMBRE, ReiniciarContrasenaData.APELLIDO,

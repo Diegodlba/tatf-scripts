@@ -30,7 +30,7 @@ public class EliminarCuentaTesterTest extends BaseTest {
     @Test
     @DisplayName("Eliminar cuenta Tester - baja exitosa")
     void eliminarCuentaTester() {
-        acceso.ingresarAlSitio(url, passwordAcceso);
+        acceso.ingresarAlSitio(url, contrasenaAcceso);
 
         // Precondición 1: sesión de Administrador iniciada
         login.iniciarSesion(adminEmail, adminPassword);

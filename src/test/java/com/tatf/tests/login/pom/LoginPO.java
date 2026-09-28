@@ -7,8 +7,8 @@ public class LoginPO {
     private final IBrowser browser;
 
     private final String menuIniciarSesion = "//span[text()='Iniciar sesión']";
-    private final String emailInput = "input[placeholder='Email']";
-    private final String contrasenaInput = "input[placeholder='Contraseña']";
+    private final String emailInput = "input[name='inputEmail']";
+    private final String contrasenaInput = "input[name='inputPassword']";
     private final String ingresarButton = "//button[contains(.,'Iniciar Sesión')]";
 
     public LoginPO(IBrowser browser) {

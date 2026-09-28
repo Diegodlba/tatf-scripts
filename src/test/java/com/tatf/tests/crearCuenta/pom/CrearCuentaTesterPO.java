@@ -7,13 +7,13 @@ public class CrearCuentaTesterPO {
     private final IBrowser browser;
 
     private final String menuCrearUsuario = "//*[contains(text(),'Crear usuario')]";
-    private final String nombreInput = "input[placeholder='Nombre']";
-    private final String apellidoInput = "input[placeholder='Apellido']";
-    private final String emailInput = "input[placeholder='Email']";
+    private final String nombreInput = "input[name='inputFirstName']";
+    private final String apellidoInput = "input[name='inputLastName']";
+    private final String emailInput = "input[name='inputEmail']";
     private final String paisSelect = "select[name='inputCountry']";
-    private final String contrasenaInput = "input[placeholder='Contraseña por defecto']";
-    private final String radioTesterJunior = "//*[contains(text(),'Tester Junior')]/preceding-sibling::input[@type='radio']";
-    private final String crearCuentaButton = "//button[contains(.,'Crear cuenta')]";
+    private final String contrasenaInput = "input[name='inputPassword']";
+    private final String radioTesterJunior = "testerJunior";
+    private final String crearCuentaButton = "btnRegister";
 
     public CrearCuentaTesterPO(IBrowser browser) {
         this.browser = browser;
@@ -44,10 +44,10 @@ public class CrearCuentaTesterPO {
     }
 
     public void seleccionarTesterJunior() {
-        browser.find().xpath(radioTesterJunior).click();
+        browser.find().id(radioTesterJunior).click();
     }
 
     public void clickCrearCuenta() {
-        browser.find().xpath(crearCuentaButton).click();
+        browser.find().id(crearCuentaButton).click();
     }
 }

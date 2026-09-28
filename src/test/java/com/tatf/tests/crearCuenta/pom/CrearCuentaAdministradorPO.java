@@ -7,13 +7,13 @@ public class CrearCuentaAdministradorPO {
     private final IBrowser browser;
 
     private final String menuRegistrarse = "//div[text()='Registrarse']";
-    private final String nombreInput = "input[placeholder='Nombre']";
-    private final String apellidoInput = "input[placeholder='Apellido']";
-    private final String emailInput = "input[placeholder='Email']";
-    private final String contrasenaInput = "input[placeholder='Contraseña']";
-    private final String repetirContrasenaInput = "input[placeholder='Repetir contraseña']";
-    private final String paisInput = "input[placeholder='Pais nacimiento']";
-    private final String registrarseButton = "//button[contains(.,'Registrarse')]";
+    private final String nombreInput = "input[name='inputFirstName']";
+    private final String apellidoInput = "input[name='inputLastName']";
+    private final String emailInput = "input[name='inputEmail']";
+    private final String contrasenaInput = "input[name='inputPassword']";
+    private final String repetirContrasenaInput = "input[name='inputRepeatPassword']";
+    private final String paisInput = "input[name='inputCountry']";
+    private final String registrarseButton = "btnRegister";
 
     public CrearCuentaAdministradorPO(IBrowser browser) {
         this.browser = browser;
@@ -48,6 +48,6 @@ public class CrearCuentaAdministradorPO {
     }
 
     public void clickRegistrarse() {
-        browser.find().xpath(registrarseButton).click();
+        browser.find().id(registrarseButton).click();
     }
 }

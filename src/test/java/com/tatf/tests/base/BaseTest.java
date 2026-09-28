@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 public class BaseTest {
     protected static IBrowser browser;
     protected static String url;
-    protected static String passwordAcceso;
+    protected static String contrasenaAcceso;
     protected static String adminEmail;
     protected static String adminPassword;
 
@@ -17,7 +17,7 @@ public class BaseTest {
     static public void configuration() {
         browser = BrowserFactory.getBrowser(true);
         url = "http://cestore.ces.com.uy/adminces/";
-        passwordAcceso = "3)ea60e0be3ba12c6ecd%7297868%5c4";
+        contrasenaAcceso = "3)ea60e0be3ba12c6ecd%7297868%5c4";
         adminEmail = "yaniscorrea@gmail.com";
         adminPassword = "12345";
     }

@@ -14,29 +14,29 @@ import org.junit.jupiter.api.Test;
 public class CrearCuentaAdministradorTest extends BaseTest {
 
     private AccesoTask acceso;
-    private CrearCuentaAdministradorTask register;
+    private CrearCuentaAdministradorTask registro;
     private LoginTask login;
-    private VerUsuariosTask viewUsers;
+    private VerUsuariosTask verUsuarios;
 
     @BeforeEach
     void configurar() {
         acceso = new AccesoTask(browser);
-        register = new CrearCuentaAdministradorTask(browser);
+        registro = new CrearCuentaAdministradorTask(browser);
         login = new LoginTask(browser);
-        viewUsers = new VerUsuariosTask(browser);
+        verUsuarios = new VerUsuariosTask(browser);
     }
 
     @Test
     @DisplayName("Crear cuenta Administrador - alta exitosa")
     void crearCuentaAdministrador() {
-        acceso.ingresarAlSitio(url, passwordAcceso);
+        acceso.ingresarAlSitio(url, contrasenaAcceso);
 
-        register.crearCuentaAdministrador(CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO, CrearCuentaAdministradorData.EMAIL,
+        registro.crearCuentaAdministrador(CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO, CrearCuentaAdministradorData.EMAIL,
                 CrearCuentaAdministradorData.CONTRASENA, CrearCuentaAdministradorData.PAIS);
 
         login.iniciarSesion(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.CONTRASENA);
 
-        viewUsers.verificarUsuarioCreado(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO,
+        verUsuarios.verificarUsuarioCreado(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO,
                 CrearCuentaAdministradorData.PAIS, CrearCuentaAdministradorData.PERFIL_ESPERADO);
     }
 }

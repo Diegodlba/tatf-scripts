@@ -29,7 +29,7 @@ public class CrearCuentaTesterTest extends BaseTest {
     @Test
     @DisplayName("Crear cuenta Tester - exito en la creación de cuenta tster junior")
     void crearCuentaTester() {
-        acceso.ingresarAlSitio(url, passwordAcceso);
+        acceso.ingresarAlSitio(url, contrasenaAcceso);
 
         //Precondición: sesión de Administrador iniciada
         login.iniciarSesion(adminEmail, adminPassword);

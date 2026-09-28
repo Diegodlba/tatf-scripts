@@ -7,10 +7,10 @@ public class ReiniciarContrasenaPO {
     private final IBrowser browser;
 
     private final String menuReiniciarContrasena = "//*[contains(text(),'Reiniciar contraseña')]";
-    private final String emailInput = "input[placeholder='Email']";
-    private final String contrasenaInput = "input[placeholder='Contraseña']";
-    private final String repetirContrasenaInput = "input[placeholder='Repetir contraseña']";
-    private final String reiniciarButton = "//button[contains(.,'Rei. Contraseña')]";
+    private final String emailInput = "input[name='inputEmail']";
+    private final String contrasenaInput = "input[name='inputPassword']";
+    private final String repetirContrasenaInput = "input[name='inputRepeatPassword']";
+    private final String reiniciarButton = "btnReset";
 
     public ReiniciarContrasenaPO(IBrowser browser) {
         this.browser = browser;
@@ -33,6 +33,6 @@ public class ReiniciarContrasenaPO {
     }
 
     public void clickReiniciar() {
-        browser.find().xpath(reiniciarButton).click();
+        browser.find().id(reiniciarButton).click();
     }
 }
