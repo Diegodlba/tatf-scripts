@@ -35,9 +35,13 @@ public class EliminarCuentaTesterTest extends BaseTest {
         // Precondición 1: sesión de Administrador iniciada
         login.iniciarSesion(adminEmail, adminPassword);
 
+        login.verificarSesionIniciada(adminNombre);
         // Precondición 2: existe una cuenta Tester
         createUser.crearCuentaTester(VerUsuariosData.NOMBRE, VerUsuariosData.APELLIDO, VerUsuariosData.EMAIL,
                 VerUsuariosData.PAIS, VerUsuariosData.CONTRASENA);
+
+        viewUsers.verificarUsuarioCreado(VerUsuariosData.EMAIL, VerUsuariosData.NOMBRE, VerUsuariosData.APELLIDO,
+                VerUsuariosData.PAIS, VerUsuariosData.PERFIL_ESPERADO);
 
         viewUsers.eliminarUsuarioYConfirmar(VerUsuariosData.EMAIL);
         viewUsers.verificarUsuarioEliminado(VerUsuariosData.EMAIL);

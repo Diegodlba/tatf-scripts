@@ -36,6 +36,8 @@ public class CrearCuentaAdministradorTest extends BaseTest {
 
         login.iniciarSesion(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.CONTRASENA);
 
+        login.verificarSesionIniciada(CrearCuentaAdministradorData.NOMBRE);
+
         verUsuarios.verificarUsuarioCreado(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO,
                 CrearCuentaAdministradorData.PAIS, CrearCuentaAdministradorData.PERFIL_ESPERADO);
     }

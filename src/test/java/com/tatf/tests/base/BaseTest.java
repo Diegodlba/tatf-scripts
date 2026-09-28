@@ -12,6 +12,8 @@ public class BaseTest {
     protected static String contrasenaAcceso;
     protected static String adminEmail;
     protected static String adminPassword;
+    protected static String adminNombre;
+
 
     @BeforeAll
     static public void configuration() {
@@ -20,6 +22,7 @@ public class BaseTest {
         contrasenaAcceso = "3)ea60e0be3ba12c6ecd%7297868%5c4";
         adminEmail = "yaniscorrea@gmail.com";
         adminPassword = "12345";
+        adminNombre = "Yanis";
     }
 
     @AfterAll

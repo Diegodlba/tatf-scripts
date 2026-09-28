@@ -10,6 +10,9 @@ public class AccesoPO {
     private final String passwordInput = "pass";
     private final String ingresarButton = "//button[contains(.,'Ingresar')]";
 
+    private final String tituloAdminCES = "//a[@href='/adminces']";
+
+
     public AccesoPO(IBrowser browser) {
         this.browser = browser;
     }
@@ -21,4 +24,9 @@ public class AccesoPO {
     public void clickIngresar() {
         browser.find().xpath(ingresarButton).click();
     }
+
+    public boolean estaEnHome() {
+        return browser.find().xpath(tituloAdminCES).isDisplayed();
+    }
+
 }

@@ -34,6 +34,8 @@ public class CrearCuentaTesterTest extends BaseTest {
         //Precondición: sesión de Administrador iniciada
         login.iniciarSesion(adminEmail, adminPassword);
 
+        login.verificarSesionIniciada(adminNombre);
+
         createUser.crearCuentaTester(CrearCuentaTesterData.NOMBRE, CrearCuentaTesterData.APELLIDO, CrearCuentaTesterData.EMAIL,
                 CrearCuentaTesterData.PAIS, CrearCuentaTesterData.CONTRASENA);
 

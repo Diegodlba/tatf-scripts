@@ -7,4 +7,5 @@ public class VerUsuariosData {
     public static final String EMAIL = "diego.tester@ces.com.uy";
     public static final String CONTRASENA = "12345Diego";
     public static final String PAIS = "Uruguay";
+    public static final String PERFIL_ESPERADO = "Tester Junior";
 }
