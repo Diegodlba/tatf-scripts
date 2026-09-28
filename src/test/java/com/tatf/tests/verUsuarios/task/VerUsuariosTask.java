@@ -1,9 +1,9 @@
-package com.tatf.tests.viewUsers.task;
+package com.tatf.tests.verUsuarios.task;
 
 import com.tatf.core.browser.IBrowser;
 import com.tatf.core.verification.IVerify;
 import com.tatf.tests.modal.pom.ModalPO;
-import com.tatf.tests.viewUsers.pom.VerUsuariosPO;
+import com.tatf.tests.verUsuarios.pom.VerUsuariosPO;
 
 //Clase que contiene las acciones para eliminar el usuario de tipo testr
 public class VerUsuariosTask {

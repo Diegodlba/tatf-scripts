@@ -2,15 +2,15 @@ package com.tatf.tests.crearCuenta.task;
 
 import com.tatf.core.browser.IBrowser;
 import com.tatf.tests.modal.pom.ModalPO;
-import com.tatf.tests.crearCuenta.pom.CrearCuentaAdminPO;
+import com.tatf.tests.crearCuenta.pom.CrearCuentaAdministradorPO;
 
 //Clase que contiene las acciones necesarias para la creación de un usuario de tipo admin
-public class CrearCuentaAdminTask {
-    private final CrearCuentaAdminPO register;
+public class CrearCuentaAdministradorTask {
+    private final CrearCuentaAdministradorPO register;
     private final ModalPO modal;
 
-    public CrearCuentaAdminTask(IBrowser browser) {
-        this.register = new CrearCuentaAdminPO(browser);
+    public CrearCuentaAdministradorTask(IBrowser browser) {
+        this.register = new CrearCuentaAdministradorPO(browser);
         this.modal = new ModalPO(browser);
     }
 

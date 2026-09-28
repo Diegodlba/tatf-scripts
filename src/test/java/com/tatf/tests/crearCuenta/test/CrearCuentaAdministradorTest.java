@@ -3,9 +3,9 @@ package com.tatf.tests.crearCuenta.test;
 import com.tatf.tests.acceso.task.AccesoTask;
 import com.tatf.tests.base.BaseTest;
 import com.tatf.tests.login.task.LoginTask;
-import com.tatf.tests.crearCuenta.data.CrearCuentaAdminData;
-import com.tatf.tests.crearCuenta.task.CrearCuentaAdminTask;
-import com.tatf.tests.viewUsers.task.VerUsuariosTask;
+import com.tatf.tests.crearCuenta.data.CrearCuentaAdministradorData;
+import com.tatf.tests.crearCuenta.task.CrearCuentaAdministradorTask;
+import com.tatf.tests.verUsuarios.task.VerUsuariosTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,14 +14,14 @@ import org.junit.jupiter.api.Test;
 public class CrearCuentaAdministradorTest extends BaseTest {
 
     private AccesoTask acceso;
-    private CrearCuentaAdminTask register;
+    private CrearCuentaAdministradorTask register;
     private LoginTask login;
     private VerUsuariosTask viewUsers;
 
     @BeforeEach
     void configurar() {
         acceso = new AccesoTask(browser);
-        register = new CrearCuentaAdminTask(browser);
+        register = new CrearCuentaAdministradorTask(browser);
         login = new LoginTask(browser);
         viewUsers = new VerUsuariosTask(browser);
     }
@@ -31,12 +31,12 @@ public class CrearCuentaAdministradorTest extends BaseTest {
     void crearCuentaAdministrador() {
         acceso.ingresarAlSitio(url, passwordAcceso);
 
-        register.crearCuentaAdministrador(CrearCuentaAdminData.NOMBRE, CrearCuentaAdminData.APELLIDO, CrearCuentaAdminData.EMAIL,
-                CrearCuentaAdminData.CONTRASENA, CrearCuentaAdminData.PAIS);
+        register.crearCuentaAdministrador(CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO, CrearCuentaAdministradorData.EMAIL,
+                CrearCuentaAdministradorData.CONTRASENA, CrearCuentaAdministradorData.PAIS);
 
-        login.iniciarSesion(CrearCuentaAdminData.EMAIL, CrearCuentaAdminData.CONTRASENA);
+        login.iniciarSesion(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.CONTRASENA);
 
-        viewUsers.verificarUsuarioCreado(CrearCuentaAdminData.EMAIL, CrearCuentaAdminData.NOMBRE, CrearCuentaAdminData.APELLIDO,
-                CrearCuentaAdminData.PAIS, CrearCuentaAdminData.PERFIL_ESPERADO);
+        viewUsers.verificarUsuarioCreado(CrearCuentaAdministradorData.EMAIL, CrearCuentaAdministradorData.NOMBRE, CrearCuentaAdministradorData.APELLIDO,
+                CrearCuentaAdministradorData.PAIS, CrearCuentaAdministradorData.PERFIL_ESPERADO);
     }
 }

@@ -1,7 +1,7 @@
 package com.tatf.tests.crearCuenta.data;
 
 //Clase con los datos para registro de usuario de tipo admin
-public class CrearCuentaAdminData {
+public class CrearCuentaAdministradorData {
     public static final String NOMBRE = "Diego";
     public static final String APELLIDO = "de la Barrera";
     public static final String EMAIL = "diego.admin@ces.com.uy";

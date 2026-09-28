@@ -1,4 +1,4 @@
-package com.tatf.tests.cambiarPassword.data;
+package com.tatf.tests.reiniciarContrasena.data;
 
 //Clase con los datos para reinicio de contraseña de usuario tipo admin
 public class ReiniciarContrasenaData {

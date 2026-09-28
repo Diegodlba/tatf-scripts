@@ -3,7 +3,7 @@ package com.tatf.tests.crearCuenta.pom;
 import com.tatf.core.browser.IBrowser;
 
 //Clase con los localizadors y acciones para la creación del usuario tipo tester
-public class CrearUsuarioTesterPO {
+public class CrearCuentaTesterPO {
     private final IBrowser browser;
 
     private final String menuCrearUsuario = "//*[contains(text(),'Crear usuario')]";
@@ -15,7 +15,7 @@ public class CrearUsuarioTesterPO {
     private final String radioTesterJunior = "//*[contains(text(),'Tester Junior')]/preceding-sibling::input[@type='radio']";
     private final String crearCuentaButton = "//button[contains(.,'Crear cuenta')]";
 
-    public CrearUsuarioTesterPO(IBrowser browser) {
+    public CrearCuentaTesterPO(IBrowser browser) {
         this.browser = browser;
     }
 

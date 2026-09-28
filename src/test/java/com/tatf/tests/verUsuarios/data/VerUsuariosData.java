@@ -1,4 +1,4 @@
-package com.tatf.tests.viewUsers.data;
+package com.tatf.tests.verUsuarios.data;
 
 //Clase que contiene los datos del usuario de tipo tester a eliminar
 public class VerUsuariosData {

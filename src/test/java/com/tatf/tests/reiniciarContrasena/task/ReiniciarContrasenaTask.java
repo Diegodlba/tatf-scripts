@@ -1,8 +1,8 @@
-package com.tatf.tests.cambiarPassword.task;
+package com.tatf.tests.reiniciarContrasena.task;
 
 import com.tatf.core.browser.IBrowser;
 import com.tatf.tests.modal.pom.ModalPO;
-import com.tatf.tests.cambiarPassword.pom.ReiniciarContrasenaPO;
+import com.tatf.tests.reiniciarContrasena.pom.ReiniciarContrasenaPO;
 
 //Clase que contiene las acciones necesarias para el reinicio de contraseña de tipo admin
 public class ReiniciarContrasenaTask {

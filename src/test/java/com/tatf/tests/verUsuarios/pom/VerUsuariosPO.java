@@ -1,4 +1,4 @@
-package com.tatf.tests.viewUsers.pom;
+package com.tatf.tests.verUsuarios.pom;
 
 import com.tatf.core.browser.IBrowser;
 

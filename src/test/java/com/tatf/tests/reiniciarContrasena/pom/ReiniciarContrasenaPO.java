@@ -1,4 +1,4 @@
-package com.tatf.tests.cambiarPassword.pom;
+package com.tatf.tests.reiniciarContrasena.pom;
 
 import com.tatf.core.browser.IBrowser;
 

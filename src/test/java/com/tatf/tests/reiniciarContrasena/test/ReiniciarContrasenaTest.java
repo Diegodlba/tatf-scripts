@@ -1,11 +1,11 @@
-package com.tatf.tests.cambiarPassword.test;
+package com.tatf.tests.reiniciarContrasena.test;
 
 import com.tatf.tests.acceso.task.AccesoTask;
 import com.tatf.tests.base.BaseTest;
-import com.tatf.tests.cambiarPassword.data.ReiniciarContrasenaData;
-import com.tatf.tests.cambiarPassword.task.ReiniciarContrasenaTask;
+import com.tatf.tests.reiniciarContrasena.data.ReiniciarContrasenaData;
+import com.tatf.tests.reiniciarContrasena.task.ReiniciarContrasenaTask;
 import com.tatf.tests.login.task.LoginTask;
-import com.tatf.tests.crearCuenta.task.CrearCuentaAdminTask;
+import com.tatf.tests.crearCuenta.task.CrearCuentaAdministradorTask;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,14 +14,14 @@ import org.junit.jupiter.api.Test;
 public class ReiniciarContrasenaTest extends BaseTest {
 
     private AccesoTask acceso;
-    private CrearCuentaAdminTask register;
+    private CrearCuentaAdministradorTask register;
     private ReiniciarContrasenaTask forgotPassword;
     private LoginTask login;
 
     @BeforeEach
     void configurar() {
         acceso = new AccesoTask(browser);
-        register = new CrearCuentaAdminTask(browser);
+        register = new CrearCuentaAdministradorTask(browser);
         forgotPassword = new ReiniciarContrasenaTask(browser);
         login = new LoginTask(browser);
     }

@@ -3,7 +3,7 @@ package com.tatf.tests.crearCuenta.pom;
 import com.tatf.core.browser.IBrowser;
 
 //Clase que contiene los localizadores y acciones para la creación de usuario de tipo admin
-public class CrearCuentaAdminPO {
+public class CrearCuentaAdministradorPO {
     private final IBrowser browser;
 
     private final String menuRegistrarse = "//div[text()='Registrarse']";
@@ -15,7 +15,7 @@ public class CrearCuentaAdminPO {
     private final String paisInput = "input[placeholder='Pais nacimiento']";
     private final String registrarseButton = "//button[contains(.,'Registrarse')]";
 
-    public CrearCuentaAdminPO(IBrowser browser) {
+    public CrearCuentaAdministradorPO(IBrowser browser) {
         this.browser = browser;
     }
 
