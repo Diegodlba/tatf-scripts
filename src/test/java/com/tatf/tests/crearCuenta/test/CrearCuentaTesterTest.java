@@ -1,14 +1,20 @@
 package com.tatf.tests.crearCuenta.test;
 
+import com.tatf.core.browser.BrowserFactory;
+import com.tatf.core.verification.IVerify;
 import com.tatf.tests.acceso.task.AccesoTask;
+import com.tatf.tests.base.AdminPredeterminado;
 import com.tatf.tests.base.BaseTest;
-import com.tatf.tests.crearCuenta.data.CrearCuentaTesterData;
 import com.tatf.tests.crearCuenta.task.CrearCuentaTesterTask;
 import com.tatf.tests.login.task.LoginTask;
 import com.tatf.tests.verUsuarios.task.VerUsuariosTask;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+
 
 //Clase para test de la creación de usuario de tipo tester (Precondición: sesión de Administrador iniciada)
 public class CrearCuentaTesterTest extends BaseTest {
@@ -26,20 +32,23 @@ public class CrearCuentaTesterTest extends BaseTest {
         viewUsers = new VerUsuariosTask(browser);
     }
 
-    @Test
-    @DisplayName("Crear cuenta Tester - exito en la creación de cuenta tster junior")
-    void crearCuentaTester() {
+    @ParameterizedTest(name = "Crear cuenta Tester - {5}")
+    @CsvFileSource(resources = "/crear_cuenta_tester.csv", useHeadersInDisplayName = true)
+    void crearCuentaTester(String nombre, String apellido, String email, String pais, String contrasena, String perfil) {
         acceso.ingresarAlSitio(url, contrasenaAcceso);
+        IVerify.create().verifyTrue(acceso.seAccedioAlSitio(),
+                "No se pudo acceder al sitio AdminCES con la contraseña indicada");
 
         //Precondición: sesión de Administrador iniciada
-        login.iniciarSesion(adminEmail, adminPassword);
+        login.iniciarSesion(AdminPredeterminado.EMAIL, AdminPredeterminado.PASSWORD);
+        IVerify.create().verifyTrue(login.sesionIniciada(AdminPredeterminado.NOMBRE), "El login no fue exitoso");
 
-        login.verificarSesionIniciada(adminNombre);
+        createUser.crearCuentaTester(nombre, apellido, email, pais, contrasena, perfil);
 
-        createUser.crearCuentaTester(CrearCuentaTesterData.NOMBRE, CrearCuentaTesterData.APELLIDO, CrearCuentaTesterData.EMAIL,
-                CrearCuentaTesterData.PAIS, CrearCuentaTesterData.CONTRASENA);
-
-        viewUsers.verificarUsuarioCreado(CrearCuentaTesterData.EMAIL, CrearCuentaTesterData.NOMBRE, CrearCuentaTesterData.APELLIDO,
-                CrearCuentaTesterData.PAIS, CrearCuentaTesterData.PERFIL_ESPERADO);
+        viewUsers.abrirListadoYEsperarFila(email);
+        IVerify.create().verify(nombre, viewUsers.obtenerNombre(email), "El nombre no coincide con lo ingresado");
+        IVerify.create().verify(apellido, viewUsers.obtenerApellido(email), "El apellido no coincide con lo ingresado");
+        IVerify.create().verify(pais, viewUsers.obtenerPais(email), "El país no coincide con lo ingresado");
+        IVerify.create().verify(perfil, viewUsers.obtenerPerfil(email), "El perfil del usuario creado no es el esperado");
     }
 }

@@ -15,19 +15,25 @@ public class VerUsuariosTask {
         this.modal = new ModalPO(browser);
     }
 
-    public void verificarUsuarioCreado(String email, String nombreEsperado, String apellidoEsperado,
-                                        String paisEsperado, String perfilEsperado) {
+    public void abrirListadoYEsperarFila(String email) {
         viewUsers.abrirListado();
         viewUsers.esperarFila(email);
+    }
 
-        IVerify.create().verify(nombreEsperado, viewUsers.obtenerNombre(email),
-                "El nombre no coincide con lo ingresado");
-        IVerify.create().verify(apellidoEsperado, viewUsers.obtenerApellido(email),
-                "El apellido no coincide con lo ingresado");
-        IVerify.create().verify(paisEsperado, viewUsers.obtenerPais(email),
-                "El país no coincide con lo ingresado");
-        IVerify.create().verify(perfilEsperado, viewUsers.obtenerPerfil(email),
-                "El perfil del usuario creado no es el esperado");
+    public String obtenerNombre(String email) {
+        return viewUsers.obtenerNombre(email);
+    }
+
+    public String obtenerApellido(String email) {
+        return viewUsers.obtenerApellido(email);
+    }
+
+    public String obtenerPais(String email) {
+        return viewUsers.obtenerPais(email);
+    }
+
+    public String obtenerPerfil(String email) {
+        return viewUsers.obtenerPerfil(email);
     }
 
     public void eliminarUsuarioYConfirmar(String email) {
@@ -38,9 +44,8 @@ public class VerUsuariosTask {
         modal.confirmar();
     }
 
-    public void verificarUsuarioEliminado(String email) {
+    public boolean usuarioExiste(String email) {
         viewUsers.abrirListado();
-        IVerify.create().verifyFalse(viewUsers.existeUsuario(email),
-                "El usuario Tester eliminado sigue apareciendo en la lista");
+        return viewUsers.existeUsuario(email);
     }
 }

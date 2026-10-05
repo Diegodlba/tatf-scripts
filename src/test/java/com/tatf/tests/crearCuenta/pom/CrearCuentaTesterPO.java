@@ -43,8 +43,21 @@ public class CrearCuentaTesterPO {
         browser.find().css(contrasenaInput).write(contrasena);
     }
 
-    public void seleccionarTesterJunior() {
-        browser.find().id(radioTesterJunior).click();
+    public void seleccionarPerfil(String perfil) {
+        browser.find().id(idDelPerfil(perfil)).click();
+    }
+
+    private String idDelPerfil(String perfil) {
+        switch (perfil) {
+            case "Tester Junior":
+                return "testerJunior";
+            case "Tester Senior":
+                return "testerSenior";
+            case "Tester Lider":
+                return "testerLead";
+            default:
+                throw new IllegalArgumentException("Perfil no encontrado: " + perfil);
+        }
     }
 
     public void clickCrearCuenta() {

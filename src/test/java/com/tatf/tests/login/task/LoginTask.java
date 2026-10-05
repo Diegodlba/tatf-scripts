@@ -23,8 +23,7 @@ public class LoginTask {
         modal.confirmar();
     }
 
-    public void verificarSesionIniciada(String nombreEsperado) {
-        IVerify.create().verifyTrue(login.estaVisibleTexto(nombreEsperado),
-                "El login no fue exitoso");
+    public boolean sesionIniciada(String nombreEsperado) {
+        return login.estaVisibleTexto(nombreEsperado);
     }
 }

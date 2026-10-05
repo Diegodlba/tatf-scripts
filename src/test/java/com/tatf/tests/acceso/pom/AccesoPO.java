@@ -29,4 +29,8 @@ public class AccesoPO {
         return browser.find().xpath(tituloAdminCES).isDisplayed();
     }
 
+    public void irAlSitio(String url) {
+        browser.interaction().navigateTo(url);
+    }
+
 }

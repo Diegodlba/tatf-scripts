@@ -1,14 +1,18 @@
 package com.tatf.tests.reiniciarContrasena.test;
 
+import com.tatf.core.browser.BrowserFactory;
+import com.tatf.core.verification.IVerify;
 import com.tatf.tests.acceso.task.AccesoTask;
 import com.tatf.tests.base.BaseTest;
-import com.tatf.tests.reiniciarContrasena.data.ReiniciarContrasenaData;
 import com.tatf.tests.reiniciarContrasena.task.ReiniciarContrasenaTask;
 import com.tatf.tests.login.task.LoginTask;
 import com.tatf.tests.crearCuenta.task.CrearCuentaAdministradorTask;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 //Clase para test del reinicio de contraseña de admin (Precondición: existe una cuenta de Administrador)
 public class ReiniciarContrasenaTest extends BaseTest {
@@ -26,18 +30,20 @@ public class ReiniciarContrasenaTest extends BaseTest {
         login = new LoginTask(browser);
     }
 
-    @Test
-    @DisplayName("Reiniciar contraseña - login exitoso con la nueva contraseña")
-    void reiniciarContrasena() {
+    @ParameterizedTest(name = "Reiniciar contraseña - {0} {1}")
+    @CsvFileSource(resources = "/reiniciar_contrasena.csv", useHeadersInDisplayName = true)
+    void reiniciarContrasena(String nombre, String apellido, String email, String pais,
+                             String contrasenaInicial, String contrasenaNueva) {
         acceso.ingresarAlSitio(url, contrasenaAcceso);
+        IVerify.create().verifyTrue(acceso.seAccedioAlSitio(),
+                "No se pudo acceder al sitio AdminCES con la contraseña indicada");
 
         // Precondición: existe una cuenta de Administrador
-        register.crearCuentaAdministrador(ReiniciarContrasenaData.NOMBRE, ReiniciarContrasenaData.APELLIDO,
-                ReiniciarContrasenaData.EMAIL, ReiniciarContrasenaData.CONTRASENA_INICIAL, ReiniciarContrasenaData.PAIS);
+        register.crearCuentaAdministrador(nombre, apellido, email, contrasenaInicial, pais);
 
-        forgotPassword.reiniciarContrasena(ReiniciarContrasenaData.EMAIL, ReiniciarContrasenaData.CONTRASENA_NUEVA);
+        forgotPassword.reiniciarContrasena(email, contrasenaNueva);
 
-        login.iniciarSesion(ReiniciarContrasenaData.EMAIL, ReiniciarContrasenaData.CONTRASENA_NUEVA);
-        login.verificarSesionIniciada(ReiniciarContrasenaData.NOMBRE);
+        login.iniciarSesion(email, contrasenaNueva);
+        IVerify.create().verifyTrue(login.sesionIniciada(nombre), "El login con la nueva contraseña no fue exitoso");
     }
 }

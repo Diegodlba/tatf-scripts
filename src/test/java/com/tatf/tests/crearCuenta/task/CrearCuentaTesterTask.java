@@ -14,14 +14,14 @@ public class CrearCuentaTesterTask {
         this.modal = new ModalPO(browser);
     }
 
-    public void crearCuentaTester(String nombre, String apellido, String email, String pais, String contrasena) {
+    public void crearCuentaTester(String nombre, String apellido, String email, String pais, String contrasena, String perfil) {
         createUser.abrirFormulario();
         createUser.completarNombre(nombre);
         createUser.completarApellido(apellido);
         createUser.completarEmail(email);
         createUser.seleccionarPais(pais);
         createUser.completarContrasena(contrasena);
-        createUser.seleccionarTesterJunior();
+        createUser.seleccionarPerfil(perfil);
         createUser.clickCrearCuenta();
         modal.confirmar();
     }
