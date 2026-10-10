@@ -8,10 +8,7 @@ import com.tatf.tests.base.BaseTest;
 import com.tatf.tests.crearCuenta.task.CrearCuentaTesterTask;
 import com.tatf.tests.login.task.LoginTask;
 import com.tatf.tests.verUsuarios.task.VerUsuariosTask;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -34,6 +31,10 @@ public class CrearCuentaTesterTest extends BaseTest {
 
     @ParameterizedTest(name = "Crear cuenta Tester - {5}")
     @CsvFileSource(resources = "/crear_cuenta_tester.csv", useHeadersInDisplayName = true)
+    @Tag("modulo-crearCuenta")
+    @Tag("humo")
+    @Tag("regresion")
+    @DisplayName("Crear cuenta Tester")
     void crearCuentaTester(String nombre, String apellido, String email, String pais, String contrasena, String perfil) {
         acceso.ingresarAlSitio(url, contrasenaAcceso);
         IVerify.create().verifyTrue(acceso.seAccedioAlSitio(),

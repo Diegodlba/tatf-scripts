@@ -2,9 +2,12 @@ package com.tatf.core.browser;
 
 import com.tatf.core.driver.factory.DriverType;
 import com.tatf.core.driver.instance.DriverManagerSingleton;
+import com.tatf.core.util.ConfigReader;
 
 public class BrowserFactory {
     private static final int EXPLICIT_WAIT_DEFAULT_SECONDS = 10;
+    private static final ConfigReader CONFIG = new ConfigReader("config.properties");
+
 
     private BrowserFactory() {
     }
@@ -24,8 +27,7 @@ public class BrowserFactory {
      * Lee el browser a usar desde la propiedad del sistema "browser" (CHROME por defecto).
      */
     private static DriverType resolveDriverType() {
-        String browserProperty = System.getProperty("browser", "CHROME");
-        return DriverType.valueOf(browserProperty.toUpperCase());
+        return DriverType.valueOf(CONFIG.asString("browserfactory.driver_type").toUpperCase());
     }
 
     /**

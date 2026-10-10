@@ -7,10 +7,7 @@ import com.tatf.tests.base.BaseTest;
 import com.tatf.tests.reiniciarContrasena.task.ReiniciarContrasenaTask;
 import com.tatf.tests.login.task.LoginTask;
 import com.tatf.tests.crearCuenta.task.CrearCuentaAdministradorTask;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -32,6 +29,9 @@ public class ReiniciarContrasenaTest extends BaseTest {
 
     @ParameterizedTest(name = "Reiniciar contraseña - {0} {1}")
     @CsvFileSource(resources = "/reiniciar_contrasena.csv", useHeadersInDisplayName = true)
+    @Tag("modulo-reiniciarContrasena")
+    @Tag("regresion")
+    @DisplayName("Reiniciar contraseña")
     void reiniciarContrasena(String nombre, String apellido, String email, String pais,
                              String contrasenaInicial, String contrasenaNueva) {
         acceso.ingresarAlSitio(url, contrasenaAcceso);
