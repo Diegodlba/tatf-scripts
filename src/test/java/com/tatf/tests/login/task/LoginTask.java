@@ -1,7 +1,6 @@
 package com.tatf.tests.login.task;
 
 import com.tatf.core.browser.IBrowser;
-import com.tatf.core.verification.IVerify;
 import com.tatf.tests.modal.pom.ModalPO;
 import com.tatf.tests.login.pom.LoginPO;
 

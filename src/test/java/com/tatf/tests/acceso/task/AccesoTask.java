@@ -1,7 +1,6 @@
 package com.tatf.tests.acceso.task;
 
 import com.tatf.core.browser.IBrowser;
-import com.tatf.core.verification.IVerify;
 import com.tatf.tests.acceso.pom.AccesoPO;
 
 //Clase que contiene las tareas relacionadas con el acceso al sitio AdminCES

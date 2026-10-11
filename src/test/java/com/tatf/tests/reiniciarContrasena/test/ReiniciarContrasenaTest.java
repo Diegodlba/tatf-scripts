@@ -1,6 +1,5 @@
 package com.tatf.tests.reiniciarContrasena.test;
 
-import com.tatf.core.browser.BrowserFactory;
 import com.tatf.core.verification.IVerify;
 import com.tatf.tests.acceso.task.AccesoTask;
 import com.tatf.tests.base.BaseTest;

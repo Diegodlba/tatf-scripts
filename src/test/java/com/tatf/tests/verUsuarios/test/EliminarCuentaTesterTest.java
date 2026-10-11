@@ -1,7 +1,6 @@
 package com.tatf.tests.verUsuarios.test;
 
 
-import com.tatf.core.browser.BrowserFactory;
 import com.tatf.core.verification.IVerify;
 import com.tatf.tests.acceso.task.AccesoTask;
 import com.tatf.tests.base.AdminPredeterminado;
@@ -13,7 +12,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import static com.tatf.tests.base.AdminPredeterminado.*;
 
 //Clase de test de eliminación de usuario tipo tester (Precondición 1: sesión de Administrador iniciada , Precondición 2: existe una cuenta Tester)
 public class EliminarCuentaTesterTest extends BaseTest {
@@ -49,11 +47,7 @@ public class EliminarCuentaTesterTest extends BaseTest {
         createUser.crearCuentaTester(nombre, apellido, email, pais, contrasena, perfil);
 
         viewUsers.abrirListadoYEsperarFila(email);
-        IVerify.create().verify(nombre, viewUsers.obtenerNombre(email), "El nombre no coincide con lo ingresado");
-        IVerify.create().verify(apellido, viewUsers.obtenerApellido(email), "El apellido no coincide con lo ingresado");
-        IVerify.create().verify(pais, viewUsers.obtenerPais(email), "El país no coincide con lo ingresado");
-        IVerify.create().verify(perfil, viewUsers.obtenerPerfil(email),
-                "El perfil del usuario creado no es el esperado");
+        viewUsers.verificarDatosUsuario(email, nombre, apellido, pais, perfil);
 
         viewUsers.eliminarUsuarioYConfirmar(email);
 

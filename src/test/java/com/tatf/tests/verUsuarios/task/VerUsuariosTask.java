@@ -20,22 +20,6 @@ public class VerUsuariosTask {
         viewUsers.esperarFila(email);
     }
 
-    public String obtenerNombre(String email) {
-        return viewUsers.obtenerNombre(email);
-    }
-
-    public String obtenerApellido(String email) {
-        return viewUsers.obtenerApellido(email);
-    }
-
-    public String obtenerPais(String email) {
-        return viewUsers.obtenerPais(email);
-    }
-
-    public String obtenerPerfil(String email) {
-        return viewUsers.obtenerPerfil(email);
-    }
-
     public void eliminarUsuarioYConfirmar(String email) {
         viewUsers.abrirListado();
         viewUsers.esperarFila(email);
@@ -47,5 +31,17 @@ public class VerUsuariosTask {
     public boolean usuarioExiste(String email) {
         viewUsers.abrirListado();
         return viewUsers.existeUsuario(email);
+    }
+
+    public void verificarDatosUsuario(String email, String nombre, String apellido,
+                                      String pais, String perfil) {
+        IVerify.create().verify(nombre, viewUsers.obtenerNombre(email),
+                "El nombre no coincide con lo ingresado");
+        IVerify.create().verify(apellido, viewUsers.obtenerApellido(email),
+                "El apellido no coincide con lo ingresado");
+        IVerify.create().verify(pais, viewUsers.obtenerPais(email),
+                "El país no coincide con lo ingresado");
+        IVerify.create().verify(perfil, viewUsers.obtenerPerfil(email),
+                "El perfil del usuario creado no es el esperado");
     }
 }

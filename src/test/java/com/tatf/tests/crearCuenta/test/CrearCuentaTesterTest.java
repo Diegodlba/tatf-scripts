@@ -1,6 +1,5 @@
 package com.tatf.tests.crearCuenta.test;
 
-import com.tatf.core.browser.BrowserFactory;
 import com.tatf.core.verification.IVerify;
 import com.tatf.tests.acceso.task.AccesoTask;
 import com.tatf.tests.base.AdminPredeterminado;
@@ -47,9 +46,6 @@ public class CrearCuentaTesterTest extends BaseTest {
         createUser.crearCuentaTester(nombre, apellido, email, pais, contrasena, perfil);
 
         viewUsers.abrirListadoYEsperarFila(email);
-        IVerify.create().verify(nombre, viewUsers.obtenerNombre(email), "El nombre no coincide con lo ingresado");
-        IVerify.create().verify(apellido, viewUsers.obtenerApellido(email), "El apellido no coincide con lo ingresado");
-        IVerify.create().verify(pais, viewUsers.obtenerPais(email), "El país no coincide con lo ingresado");
-        IVerify.create().verify(perfil, viewUsers.obtenerPerfil(email), "El perfil del usuario creado no es el esperado");
+        viewUsers.verificarDatosUsuario(email, nombre, apellido, pais, perfil);
     }
 }
